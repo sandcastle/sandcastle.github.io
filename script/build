@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# script/ci-build - compiles the site
+
+# exit on sub-module failure
+set -e
+
+cd "$(dirname "$0")/.."
+
+# ------
+
+echo "Building ..."
+
+hugo
+
+echo "Build complete!"
+
+# ------

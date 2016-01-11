@@ -1,0 +1,36 @@
+#!/bin/sh
+set -e
+
+# script/publish - publishes the site
+
+cd "$(dirname "$0")/.."
+
+# ------
+
+sh script/build
+
+# ------
+
+echo "Saving content ..."
+
+message="${1:-"Content `date +"%F"`"}"
+
+git checkout source
+git save "${message}"
+git up
+
+echo "Saving content complete!"
+
+# ------
+
+echo "Publishing ..."
+cd public
+
+git checkout master
+git save "Publishing `date +"%F"`"
+git sync
+
+cd ..
+echo "Publish complete!"
+
+# ------
