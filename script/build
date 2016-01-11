@@ -1,9 +1,7 @@
 #!/bin/sh
-
-# script/ci-build - compiles the site
-
-# exit on sub-module failure
 set -e
+
+# script/build - compiles the site
 
 cd "$(dirname "$0")/.."
 
