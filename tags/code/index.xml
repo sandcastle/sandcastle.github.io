@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Code on Sandcastle</title>
+    <link>https://sandcastle.io/tags/code/</link>
+    <description>Recent content in Code on Sandcastle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-au</language>
+    <lastBuildDate>Wed, 11 Mar 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://sandcastle.io/tags/code/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HTTPS only with HTTP Strict Transport Security (HTST) header</title>
+      <link>https://sandcastle.io/post/https-only-with-http-strict-security/</link>
+      <pubDate>Wed, 11 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/post/https-only-with-http-strict-security/</guid>
+      <description>
+
+&lt;p&gt;The HTTP Strict Transport Security header (&lt;code&gt;Strict-Transport-Security&lt;/code&gt;) allows you to tell the brower to only communicate with a site using HTTPS. Once the browser has successfully connected using HTTPS and seen the header, it will only communicate with the site using HTTPS from that point forward, changing the protocol if needed. By enabling this header you can prevent man-in-the-middle attacks via &lt;a href=&#34;https://en.wikipedia.org/wiki/SSL_stripping#SSL_stripping&#34;&gt;SSL stripping&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;There is a good overview @ &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Security/HTTP_Strict_Transport_Security&#34;&gt;Mozilla&lt;/a&gt; on the header and its benefits.&lt;/p&gt;
+
+&lt;h3 id=&#34;browser-support:55b76364a798695fcec9bb0be89ee326&#34;&gt;Browser support&lt;/h3&gt;
+
+&lt;p&gt;Most browsers support it with the exception of IE which is coming soon.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Chrome (4)&lt;/li&gt;
+&lt;li&gt;Internet Explorer (IE12)&lt;/li&gt;
+&lt;li&gt;Firefox (4)&lt;/li&gt;
+&lt;li&gt;Opera (12)&lt;/li&gt;
+&lt;li&gt;Safari (Mac OS X 10.9)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;nginx-example:55b76364a798695fcec9bb0be89ee326&#34;&gt;Nginx example&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-nginx&#34;&gt;server {
+  listen 443 ssl default deferred;
+  server_name site.com;
+
+  ssl_certificate /etc/nginx/ssl/site_com.crt;
+  ssl_certificate_key /etc/nginx/ssl/site_com.key;
+
+  # Enable HSTS(HTTP Strict Transport Security)
+  add_header Strict-Transport-Security &amp;quot;max-age=31536000; includeSubdomains;&amp;quot;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Turn any webpage into a WYSIWYG editor with HTML5</title>
+      <link>https://sandcastle.io/post/turn-any-page-into-a-wysiwyg/</link>
+      <pubDate>Sun, 14 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/post/turn-any-page-into-a-wysiwyg/</guid>
+      <description>&lt;p&gt;There is a little known feature in the HTML5 spec that enables you to turn an entire page or a single element into a &lt;a href=&#34;http://en.wikipedia.org/wiki/WYSIWYG&#34;&gt;WYSIWYG&lt;/a&gt; editor with a single line of JavaScript and its &lt;a href=&#34;http://caniuse.com/#feat=contenteditable&#34;&gt;supported by every major browser&lt;/a&gt; out there.&lt;/p&gt;
+
+&lt;p&gt;To enable you simply set the &lt;code&gt;contentEditable&lt;/code&gt; attribute of an element to &lt;code&gt;true&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;// make the entire website editable
+document.body.contentEditable = true;
+
+// make an element editable
+document.getElementById(&#39;myDiv&#39;).contentEditable = true;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To check if an element is editable you check the &lt;code&gt;isContentEditable&lt;/code&gt; attribute:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;if (document.getElementById(&#39;myDiv&#39;).isContentEditable){
+  // yes its editable
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Both &lt;code&gt;contentEditable&lt;/code&gt; and &lt;code&gt;isContentEditable&lt;/code&gt; are described in the &lt;a href=&#34;http://www.w3.org/TR/html5/editing.html#contenteditable&#34;&gt;HTML5 Editing spec&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Query String Builder</title>
+      <link>https://sandcastle.io/post/the-query-string-builder/</link>
+      <pubDate>Wed, 19 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/post/the-query-string-builder/</guid>
+      <description>&lt;p&gt;I was after a query string builder to support a &lt;code&gt;System.Net.HttpClient&lt;/code&gt; that I was building tonight and it was surprising hard to find something that met my needs.&lt;/p&gt;
+
+&lt;p&gt;After some digging through the Uri source code I decided to knock one up based on the NameValueCollection.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-csharp&#34;&gt;public class QueryStringBuilder : NameValueCollection
+{
+    public QueryStringBuilder()
+        : base(StringComparer.InvariantCultureIgnoreCase) { }
+
+    public QueryStringBuilder(NameValueCollection collection)
+        : base(StringComparer.InvariantCultureIgnoreCase)
+    {
+        Add(collection);
+    }
+
+    public QueryStringBuilder(object items)
+        : base(StringComparer.InvariantCultureIgnoreCase)
+    {
+        if (items != null)
+        {
+            foreach (var propertyInfo in items.GetType().GetProperties())
+            {
+                base.Add(
+                  propertyInfo.Name,
+                    (propertyInfo.GetValue(items, null) ?? &amp;quot;&amp;quot;).ToString());
+            }
+        }
+    }
+
+    public override string ToString()
+    {
+        var builder = new StringBuilder();
+
+        var first = true;
+        foreach (var item in AllKeys)
+        {
+            builder.AppendFormat(&amp;quot;{0}{1}={2}&amp;quot;,
+                first ? &amp;quot;?&amp;quot; : &amp;quot;&amp;amp;&amp;quot;,
+                Uri.EscapeUriString(item),
+                Uri.EscapeUriString(this[item]));
+
+            first = false;
+        }
+
+        return builder.ToString();
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

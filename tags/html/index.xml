@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Html on Sandcastle</title>
+    <link>https://sandcastle.io/tags/html/</link>
+    <description>Recent content in Html on Sandcastle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-au</language>
+    <lastBuildDate>Sun, 14 Dec 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://sandcastle.io/tags/html/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Turn any webpage into a WYSIWYG editor with HTML5</title>
+      <link>https://sandcastle.io/post/turn-any-page-into-a-wysiwyg/</link>
+      <pubDate>Sun, 14 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/post/turn-any-page-into-a-wysiwyg/</guid>
+      <description>&lt;p&gt;There is a little known feature in the HTML5 spec that enables you to turn an entire page or a single element into a &lt;a href=&#34;http://en.wikipedia.org/wiki/WYSIWYG&#34;&gt;WYSIWYG&lt;/a&gt; editor with a single line of JavaScript and its &lt;a href=&#34;http://caniuse.com/#feat=contenteditable&#34;&gt;supported by every major browser&lt;/a&gt; out there.&lt;/p&gt;
+
+&lt;p&gt;To enable you simply set the &lt;code&gt;contentEditable&lt;/code&gt; attribute of an element to &lt;code&gt;true&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;// make the entire website editable
+document.body.contentEditable = true;
+
+// make an element editable
+document.getElementById(&#39;myDiv&#39;).contentEditable = true;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To check if an element is editable you check the &lt;code&gt;isContentEditable&lt;/code&gt; attribute:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;if (document.getElementById(&#39;myDiv&#39;).isContentEditable){
+  // yes its editable
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Both &lt;code&gt;contentEditable&lt;/code&gt; and &lt;code&gt;isContentEditable&lt;/code&gt; are described in the &lt;a href=&#34;http://www.w3.org/TR/html5/editing.html#contenteditable&#34;&gt;HTML5 Editing spec&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

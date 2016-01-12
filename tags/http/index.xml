@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Http on Sandcastle</title>
+    <link>https://sandcastle.io/tags/http/</link>
+    <description>Recent content in Http on Sandcastle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-au</language>
+    <lastBuildDate>Wed, 11 Mar 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://sandcastle.io/tags/http/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HTTPS only with HTTP Strict Transport Security (HTST) header</title>
+      <link>https://sandcastle.io/post/https-only-with-http-strict-security/</link>
+      <pubDate>Wed, 11 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/post/https-only-with-http-strict-security/</guid>
+      <description>
+
+&lt;p&gt;The HTTP Strict Transport Security header (&lt;code&gt;Strict-Transport-Security&lt;/code&gt;) allows you to tell the brower to only communicate with a site using HTTPS. Once the browser has successfully connected using HTTPS and seen the header, it will only communicate with the site using HTTPS from that point forward, changing the protocol if needed. By enabling this header you can prevent man-in-the-middle attacks via &lt;a href=&#34;https://en.wikipedia.org/wiki/SSL_stripping#SSL_stripping&#34;&gt;SSL stripping&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;There is a good overview @ &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Security/HTTP_Strict_Transport_Security&#34;&gt;Mozilla&lt;/a&gt; on the header and its benefits.&lt;/p&gt;
+
+&lt;h3 id=&#34;browser-support:55b76364a798695fcec9bb0be89ee326&#34;&gt;Browser support&lt;/h3&gt;
+
+&lt;p&gt;Most browsers support it with the exception of IE which is coming soon.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Chrome (4)&lt;/li&gt;
+&lt;li&gt;Internet Explorer (IE12)&lt;/li&gt;
+&lt;li&gt;Firefox (4)&lt;/li&gt;
+&lt;li&gt;Opera (12)&lt;/li&gt;
+&lt;li&gt;Safari (Mac OS X 10.9)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;nginx-example:55b76364a798695fcec9bb0be89ee326&#34;&gt;Nginx example&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-nginx&#34;&gt;server {
+  listen 443 ssl default deferred;
+  server_name site.com;
+
+  ssl_certificate /etc/nginx/ssl/site_com.crt;
+  ssl_certificate_key /etc/nginx/ssl/site_com.key;
+
+  # Enable HSTS(HTTP Strict Transport Security)
+  add_header Strict-Transport-Security &amp;quot;max-age=31536000; includeSubdomains;&amp;quot;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

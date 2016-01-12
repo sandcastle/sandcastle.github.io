@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sandcastle</title>
+    <link>https://sandcastle.io/</link>
+    <description>Recent content on Sandcastle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-au</language>
+    <lastBuildDate>Sun, 26 Apr 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://sandcastle.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Use ES6 in Gulpfile.js</title>
+      <link>https://sandcastle.io/post/use-es6-in-gulpfile-js/</link>
+      <pubDate>Sun, 26 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/post/use-es6-in-gulpfile-js/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;http://gulpjs.com/&#34;&gt;Gulp&lt;/a&gt; doesn&amp;rsquo;t natively support Ecma Script 6 (ES6), so in order to get it working we need to first transpile our &lt;code&gt;gulpfile.js&lt;/code&gt; file before it can be read by gulp.&lt;/p&gt;
+
+&lt;p&gt;A clean way of acheiving this is to have the default gulp file &lt;code&gt;gulpfile.js&lt;/code&gt; that acts as a shim to load and transpile the ES6 version (in my case &lt;code&gt;gulfile.es6.js&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://babeljs.io/&#34;&gt;Babel&lt;/a&gt; has a neat hook into &lt;code&gt;npm&lt;/code&gt; that allows us to automatically transpile &lt;code&gt;required&lt;/code&gt; statements on the fly. To install simply add the package:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm install babel --save-dev
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;gulpfile-js:802e4d18ff62c73880ea24a47772220a&#34;&gt;Gulpfile.js&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;require(&#39;babel/register&#39;);
+require(&#39;./gulpfile.es6.js&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;code&gt;require(&#39;babel/register&#39;)&lt;/code&gt; statement above is the &lt;a href=&#34;https://babeljs.io/docs/usage/require/&#34;&gt;hook&lt;/a&gt; that makes all of this possible.&lt;/p&gt;
+
+&lt;h4 id=&#34;gulpfile-es6-js:802e4d18ff62c73880ea24a47772220a&#34;&gt;Gulpfile.es6.js&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;import gulp from &#39;gulp&#39;;
+
+// uses ES6 lambda
+gulp.task(&#39;hello&#39;, () =&amp;gt; { console.log(&#39;hello&#39;); });
+
+gulp.task(&#39;default&#39;, [&#39;hello&#39;]);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can find the &lt;a href=&#34;https://github.com/sandcastle/example-es6-gulp&#34;&gt;full example&lt;/a&gt; on GitHub that shows the use of external files, generators and classes.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Automatic security updates with Ubuntu</title>
+      <link>https://sandcastle.io/post/automatic-security-updates-with-ubuntu/</link>
+      <pubDate>Mon, 06 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/post/automatic-security-updates-with-ubuntu/</guid>
+      <description>&lt;p&gt;To configure automatic updates on Ubuntu you will first need ensure that the &lt;code&gt;unattended-upgrades&lt;/code&gt; package is installed.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt-get install unattended-upgrades
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We then need to enable the package by running the following command (you will be prompted with a confirmation screen - select &lt;code&gt;yes&lt;/code&gt;):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo dpkg-reconfigure -plow unattended-upgrades
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once enabled, edit the auto upgrades settings file (&lt;code&gt;/etc/apt/apt.conf.d/20auto-upgrades&lt;/code&gt;) so it contains the following 4 lines (some may already exist):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;APT::Periodic::Update-Package-Lists &amp;quot;1&amp;quot;;
+APT::Periodic::Download-Upgradeable-Packages &amp;quot;1&amp;quot;;
+APT::Periodic::AutocleanInterval &amp;quot;7&amp;quot;;
+APT::Periodic::Unattended-Upgrade &amp;quot;1&amp;quot;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;These settings will ensure that it checks for updates daily and runs a weekly cleanup.&lt;/p&gt;
+
+&lt;p&gt;Finally, you may want to tweak the unattended upgrades settings file (&lt;code&gt;/etc/apt/apt.conf.d/50unattended-upgrades&lt;/code&gt;). This file allows you to chose what updates are run and where apt can search for new updates.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;Unattended-Upgrade::Allowed-Origins {
+  &amp;quot;${distro_id}:${distro_codename}-security&amp;quot;;
+//  &amp;quot;${distro_id}:${distro_codename}-updates&amp;quot;;
+//  &amp;quot;${distro_id}:${distro_codename}-proposed&amp;quot;;
+//  &amp;quot;${distro_id}:${distro_codename}-backports&amp;quot;;
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It is recommended you stick with just security updates initially, unless you know what you are doing.&lt;/p&gt;
+
+&lt;p&gt;_Note: The variables ${distro_id} and ${distro&lt;em&gt;codename} are expanded automatically. I would comment out the updates entry and just leave security.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to convert a mercurial (hg) repository to git</title>
+      <link>https://sandcastle.io/post/how-to-convert-a-mercurial-repository-to-git/</link>
+      <pubDate>Mon, 16 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/post/how-to-convert-a-mercurial-repository-to-git/</guid>
+      <description>
+
+&lt;p&gt;The easiest way to convert from &lt;code&gt;mercurial&lt;/code&gt; (aka &lt;code&gt;hg&lt;/code&gt;) to &lt;code&gt;git&lt;/code&gt; is by using &lt;code&gt;hg-fast-export&lt;/code&gt; on ubuntu. If you dont have ubnutu, then you can spin up a server on &lt;a href=&#34;https://digitalocean.com&#34;&gt;Digital Ocean&lt;/a&gt; for a few cents.&lt;/p&gt;
+
+&lt;p&gt;If you have issues with any of the below commands, try prefixing with &lt;code&gt;sudo&lt;/code&gt; to elevate privileges.&lt;/p&gt;
+
+&lt;h2 id=&#34;install-git-mercurial:ef26b157cdfada42a3dd413142addcba&#34;&gt;Install git &amp;amp; mercurial&lt;/h2&gt;
+
+&lt;p&gt;First we need to install Git and Mercurial:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt-get install git mercurial -y
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clone-hg-fast-export:ef26b157cdfada42a3dd413142addcba&#34;&gt;Clone hg-fast-export&lt;/h2&gt;
+
+&lt;p&gt;The &lt;code&gt;hg-fast-export&lt;/code&gt; converter is run directly from its repo so we will need to clone it locally.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# we will convert our repos here
+cd /tmp
+
+# install converter
+git clone https://github.com/frej/fast-export.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clone-your-repository:ef26b157cdfada42a3dd413142addcba&#34;&gt;Clone your repository&lt;/h2&gt;
+
+&lt;p&gt;To keep things simple we are just going to use HTTPS instead of SSH.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;hg clone https://bitbucket.org/account/your-repo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For the above example this would result in a new folder being created called &lt;code&gt;/tmp/your-repo&lt;/code&gt; - we will use this in the next next step.&lt;/p&gt;
+
+&lt;h2 id=&#34;export-to-git:ef26b157cdfada42a3dd413142addcba&#34;&gt;Export to git&lt;/h2&gt;
+
+&lt;p&gt;Export your Mercurial repository to a new Git one&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;# create a new folder for the git version
+mkdir your-repo-git
+cd your-repo-git
+
+# initialise the new git repository
+git init
+
+#run the export (don&#39;t forget to change your repo path below)
+../fast-export/hg-fast-export.sh -r ../your-repo/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;upload-to-git-hosting:ef26b157cdfada42a3dd413142addcba&#34;&gt;Upload to git hosting&lt;/h2&gt;
+
+&lt;p&gt;Finally, if you havent already done so, create a new git repo on your hosting provider and them push up the converted repository:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;# set the address of your remote git repository
+git remote add origin https://bitbucket.org/account/your-git-repo
+
+# push up your changes
+git push -u origin --all # pushes up the repo and its refs for the first time
+git push -u origin --tags # pushes up any tags
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>HTTPS only with HTTP Strict Transport Security (HTST) header</title>
+      <link>https://sandcastle.io/post/https-only-with-http-strict-security/</link>
+      <pubDate>Wed, 11 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/post/https-only-with-http-strict-security/</guid>
+      <description>
+
+&lt;p&gt;The HTTP Strict Transport Security header (&lt;code&gt;Strict-Transport-Security&lt;/code&gt;) allows you to tell the brower to only communicate with a site using HTTPS. Once the browser has successfully connected using HTTPS and seen the header, it will only communicate with the site using HTTPS from that point forward, changing the protocol if needed. By enabling this header you can prevent man-in-the-middle attacks via &lt;a href=&#34;https://en.wikipedia.org/wiki/SSL_stripping#SSL_stripping&#34;&gt;SSL stripping&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;There is a good overview @ &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Security/HTTP_Strict_Transport_Security&#34;&gt;Mozilla&lt;/a&gt; on the header and its benefits.&lt;/p&gt;
+
+&lt;h3 id=&#34;browser-support:55b76364a798695fcec9bb0be89ee326&#34;&gt;Browser support&lt;/h3&gt;
+
+&lt;p&gt;Most browsers support it with the exception of IE which is coming soon.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Chrome (4)&lt;/li&gt;
+&lt;li&gt;Internet Explorer (IE12)&lt;/li&gt;
+&lt;li&gt;Firefox (4)&lt;/li&gt;
+&lt;li&gt;Opera (12)&lt;/li&gt;
+&lt;li&gt;Safari (Mac OS X 10.9)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;nginx-example:55b76364a798695fcec9bb0be89ee326&#34;&gt;Nginx example&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-nginx&#34;&gt;server {
+  listen 443 ssl default deferred;
+  server_name site.com;
+
+  ssl_certificate /etc/nginx/ssl/site_com.crt;
+  ssl_certificate_key /etc/nginx/ssl/site_com.key;
+
+  # Enable HSTS(HTTP Strict Transport Security)
+  add_header Strict-Transport-Security &amp;quot;max-age=31536000; includeSubdomains;&amp;quot;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Turn any webpage into a WYSIWYG editor with HTML5</title>
+      <link>https://sandcastle.io/post/turn-any-page-into-a-wysiwyg/</link>
+      <pubDate>Sun, 14 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/post/turn-any-page-into-a-wysiwyg/</guid>
+      <description>&lt;p&gt;There is a little known feature in the HTML5 spec that enables you to turn an entire page or a single element into a &lt;a href=&#34;http://en.wikipedia.org/wiki/WYSIWYG&#34;&gt;WYSIWYG&lt;/a&gt; editor with a single line of JavaScript and its &lt;a href=&#34;http://caniuse.com/#feat=contenteditable&#34;&gt;supported by every major browser&lt;/a&gt; out there.&lt;/p&gt;
+
+&lt;p&gt;To enable you simply set the &lt;code&gt;contentEditable&lt;/code&gt; attribute of an element to &lt;code&gt;true&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;// make the entire website editable
+document.body.contentEditable = true;
+
+// make an element editable
+document.getElementById(&#39;myDiv&#39;).contentEditable = true;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To check if an element is editable you check the &lt;code&gt;isContentEditable&lt;/code&gt; attribute:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;if (document.getElementById(&#39;myDiv&#39;).isContentEditable){
+  // yes its editable
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Both &lt;code&gt;contentEditable&lt;/code&gt; and &lt;code&gt;isContentEditable&lt;/code&gt; are described in the &lt;a href=&#34;http://www.w3.org/TR/html5/editing.html#contenteditable&#34;&gt;HTML5 Editing spec&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Query String Builder</title>
+      <link>https://sandcastle.io/post/the-query-string-builder/</link>
+      <pubDate>Wed, 19 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/post/the-query-string-builder/</guid>
+      <description>&lt;p&gt;I was after a query string builder to support a &lt;code&gt;System.Net.HttpClient&lt;/code&gt; that I was building tonight and it was surprising hard to find something that met my needs.&lt;/p&gt;
+
+&lt;p&gt;After some digging through the Uri source code I decided to knock one up based on the NameValueCollection.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-csharp&#34;&gt;public class QueryStringBuilder : NameValueCollection
+{
+    public QueryStringBuilder()
+        : base(StringComparer.InvariantCultureIgnoreCase) { }
+
+    public QueryStringBuilder(NameValueCollection collection)
+        : base(StringComparer.InvariantCultureIgnoreCase)
+    {
+        Add(collection);
+    }
+
+    public QueryStringBuilder(object items)
+        : base(StringComparer.InvariantCultureIgnoreCase)
+    {
+        if (items != null)
+        {
+            foreach (var propertyInfo in items.GetType().GetProperties())
+            {
+                base.Add(
+                  propertyInfo.Name,
+                    (propertyInfo.GetValue(items, null) ?? &amp;quot;&amp;quot;).ToString());
+            }
+        }
+    }
+
+    public override string ToString()
+    {
+        var builder = new StringBuilder();
+
+        var first = true;
+        foreach (var item in AllKeys)
+        {
+            builder.AppendFormat(&amp;quot;{0}{1}={2}&amp;quot;,
+                first ? &amp;quot;?&amp;quot; : &amp;quot;&amp;amp;&amp;quot;,
+                Uri.EscapeUriString(item),
+                Uri.EscapeUriString(this[item]));
+
+            first = false;
+        }
+
+        return builder.ToString();
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Carousel&#39;s are bad</title>
+      <link>https://sandcastle.io/post/carousels-are-bad/</link>
+      <pubDate>Sat, 14 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/post/carousels-are-bad/</guid>
+      <description>&lt;figure&gt;
+  
+  &lt;img src=&#34;https://sandcastle.io/images/posts/carousels-are-bad/carousel-mockup.png&#34; alt=&#34;Carousel Mockup&#34; /&gt;
+  
+  
+&lt;/figure&gt;
+
+
+&lt;p&gt;I recently came across a mini site that discusses the use of image carousel&amp;rsquo;s and the impact on landing page conversions - worth taking a look.&lt;/p&gt;
+
+&lt;p&gt;The key takeaways:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Conversion rates are &lt;em&gt;really&lt;/em&gt; low when used&lt;/li&gt;
+&lt;li&gt;Key information is usually missed&lt;/li&gt;
+&lt;li&gt;Accessiblity is a big problem&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://shouldiuseacarousel.com/&#34;&gt;http://shouldiuseacarousel.com/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hello</title>
+      <link>https://sandcastle.io/post/hello/</link>
+      <pubDate>Fri, 31 Dec 1999 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/post/hello/</guid>
+      <description>
+
+&lt;p&gt;Welcome to blog!&lt;/p&gt;
+
+&lt;h2 id=&#34;setup:8a07c3dae13f18d0c06cf5f9e482b173&#34;&gt;Setup&lt;/h2&gt;
+
+&lt;p&gt;I followed the the simple tutorial from &lt;a href=&#34;http://mariarivas.me/post/Hugo/&#34;&gt;Maria Rivas&lt;/a&gt; and
+was up and running in no time.&lt;/p&gt;
+
+&lt;p&gt;Powered by &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt;!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>GitHub</title>
+      <link>https://sandcastle.io/github/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/github/</guid>
+      <description>You will be redirected to my GitHub page in a second... &lt;a rel=&#34;me&#34; href=&#34;https://github.com/sandcastle&#34;&gt;Click here if that doesn&#39;t happen.&lt;/a&gt;
+
+&lt;script type=&#34;text/javascript&#34;&gt;
+window.location = &#34;https://github.com/sandcastle&#34;;
+&lt;/script&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LinkedIn</title>
+      <link>https://sandcastle.io/linkedin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/linkedin/</guid>
+      <description>You will be redirected to my LinkedIn page in a second... &lt;a rel=&#34;me&#34; href=&#34;https://be.linkedin.com/in/glennmorton&#34;&gt;Click here if that doesn&#39;t happen.&lt;/a&gt;
+
+&lt;script type=&#34;text/javascript&#34;&gt;
+window.location = &#34;https://be.linkedin.com/in/glennmorton&#34;;
+&lt;/script&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Twitter</title>
+      <link>https://sandcastle.io/twitter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/twitter/</guid>
+      <description>You will be redirected to my Twitter page in a second... &lt;a rel=&#34;me&#34; href=&#34;https://twitter.com/sandcastle_io&#34;&gt;Click here if that doesn&#39;t happen.&lt;/a&gt;
+
+&lt;script type=&#34;text/javascript&#34;&gt;
+window.location = &#34;https://twitter.com/sandcastle_io&#34;;
+&lt;/script&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

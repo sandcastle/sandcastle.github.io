@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dotnet on Sandcastle</title>
+    <link>https://sandcastle.io/tags/dotnet/</link>
+    <description>Recent content in Dotnet on Sandcastle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-au</language>
+    <lastBuildDate>Wed, 19 Mar 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://sandcastle.io/tags/dotnet/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>The Query String Builder</title>
+      <link>https://sandcastle.io/post/the-query-string-builder/</link>
+      <pubDate>Wed, 19 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/post/the-query-string-builder/</guid>
+      <description>&lt;p&gt;I was after a query string builder to support a &lt;code&gt;System.Net.HttpClient&lt;/code&gt; that I was building tonight and it was surprising hard to find something that met my needs.&lt;/p&gt;
+
+&lt;p&gt;After some digging through the Uri source code I decided to knock one up based on the NameValueCollection.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-csharp&#34;&gt;public class QueryStringBuilder : NameValueCollection
+{
+    public QueryStringBuilder()
+        : base(StringComparer.InvariantCultureIgnoreCase) { }
+
+    public QueryStringBuilder(NameValueCollection collection)
+        : base(StringComparer.InvariantCultureIgnoreCase)
+    {
+        Add(collection);
+    }
+
+    public QueryStringBuilder(object items)
+        : base(StringComparer.InvariantCultureIgnoreCase)
+    {
+        if (items != null)
+        {
+            foreach (var propertyInfo in items.GetType().GetProperties())
+            {
+                base.Add(
+                  propertyInfo.Name,
+                    (propertyInfo.GetValue(items, null) ?? &amp;quot;&amp;quot;).ToString());
+            }
+        }
+    }
+
+    public override string ToString()
+    {
+        var builder = new StringBuilder();
+
+        var first = true;
+        foreach (var item in AllKeys)
+        {
+            builder.AppendFormat(&amp;quot;{0}{1}={2}&amp;quot;,
+                first ? &amp;quot;?&amp;quot; : &amp;quot;&amp;amp;&amp;quot;,
+                Uri.EscapeUriString(item),
+                Uri.EscapeUriString(this[item]));
+
+            first = false;
+        }
+
+        return builder.ToString();
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

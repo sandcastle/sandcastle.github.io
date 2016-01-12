@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Es6 on Sandcastle</title>
+    <link>https://sandcastle.io/tags/es6/</link>
+    <description>Recent content in Es6 on Sandcastle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-au</language>
+    <lastBuildDate>Sun, 26 Apr 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://sandcastle.io/tags/es6/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Use ES6 in Gulpfile.js</title>
+      <link>https://sandcastle.io/post/use-es6-in-gulpfile-js/</link>
+      <pubDate>Sun, 26 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/post/use-es6-in-gulpfile-js/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;http://gulpjs.com/&#34;&gt;Gulp&lt;/a&gt; doesn&amp;rsquo;t natively support Ecma Script 6 (ES6), so in order to get it working we need to first transpile our &lt;code&gt;gulpfile.js&lt;/code&gt; file before it can be read by gulp.&lt;/p&gt;
+
+&lt;p&gt;A clean way of acheiving this is to have the default gulp file &lt;code&gt;gulpfile.js&lt;/code&gt; that acts as a shim to load and transpile the ES6 version (in my case &lt;code&gt;gulfile.es6.js&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://babeljs.io/&#34;&gt;Babel&lt;/a&gt; has a neat hook into &lt;code&gt;npm&lt;/code&gt; that allows us to automatically transpile &lt;code&gt;required&lt;/code&gt; statements on the fly. To install simply add the package:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm install babel --save-dev
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;gulpfile-js:802e4d18ff62c73880ea24a47772220a&#34;&gt;Gulpfile.js&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;require(&#39;babel/register&#39;);
+require(&#39;./gulpfile.es6.js&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;code&gt;require(&#39;babel/register&#39;)&lt;/code&gt; statement above is the &lt;a href=&#34;https://babeljs.io/docs/usage/require/&#34;&gt;hook&lt;/a&gt; that makes all of this possible.&lt;/p&gt;
+
+&lt;h4 id=&#34;gulpfile-es6-js:802e4d18ff62c73880ea24a47772220a&#34;&gt;Gulpfile.es6.js&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;import gulp from &#39;gulp&#39;;
+
+// uses ES6 lambda
+gulp.task(&#39;hello&#39;, () =&amp;gt; { console.log(&#39;hello&#39;); });
+
+gulp.task(&#39;default&#39;, [&#39;hello&#39;]);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can find the &lt;a href=&#34;https://github.com/sandcastle/example-es6-gulp&#34;&gt;full example&lt;/a&gt; on GitHub that shows the use of external files, generators and classes.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

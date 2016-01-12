@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ops on Sandcastle</title>
+    <link>https://sandcastle.io/categories/ops/</link>
+    <description>Recent content in Ops on Sandcastle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-au</language>
+    <lastBuildDate>Mon, 06 Apr 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://sandcastle.io/categories/ops/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Automatic security updates with Ubuntu</title>
+      <link>https://sandcastle.io/post/automatic-security-updates-with-ubuntu/</link>
+      <pubDate>Mon, 06 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/post/automatic-security-updates-with-ubuntu/</guid>
+      <description>&lt;p&gt;To configure automatic updates on Ubuntu you will first need ensure that the &lt;code&gt;unattended-upgrades&lt;/code&gt; package is installed.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt-get install unattended-upgrades
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We then need to enable the package by running the following command (you will be prompted with a confirmation screen - select &lt;code&gt;yes&lt;/code&gt;):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo dpkg-reconfigure -plow unattended-upgrades
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once enabled, edit the auto upgrades settings file (&lt;code&gt;/etc/apt/apt.conf.d/20auto-upgrades&lt;/code&gt;) so it contains the following 4 lines (some may already exist):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;APT::Periodic::Update-Package-Lists &amp;quot;1&amp;quot;;
+APT::Periodic::Download-Upgradeable-Packages &amp;quot;1&amp;quot;;
+APT::Periodic::AutocleanInterval &amp;quot;7&amp;quot;;
+APT::Periodic::Unattended-Upgrade &amp;quot;1&amp;quot;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;These settings will ensure that it checks for updates daily and runs a weekly cleanup.&lt;/p&gt;
+
+&lt;p&gt;Finally, you may want to tweak the unattended upgrades settings file (&lt;code&gt;/etc/apt/apt.conf.d/50unattended-upgrades&lt;/code&gt;). This file allows you to chose what updates are run and where apt can search for new updates.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;Unattended-Upgrade::Allowed-Origins {
+  &amp;quot;${distro_id}:${distro_codename}-security&amp;quot;;
+//  &amp;quot;${distro_id}:${distro_codename}-updates&amp;quot;;
+//  &amp;quot;${distro_id}:${distro_codename}-proposed&amp;quot;;
+//  &amp;quot;${distro_id}:${distro_codename}-backports&amp;quot;;
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It is recommended you stick with just security updates initially, unless you know what you are doing.&lt;/p&gt;
+
+&lt;p&gt;_Note: The variables ${distro_id} and ${distro&lt;em&gt;codename} are expanded automatically. I would comment out the updates entry and just leave security.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
