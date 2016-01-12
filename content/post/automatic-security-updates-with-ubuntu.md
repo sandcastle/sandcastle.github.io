@@ -41,4 +41,4 @@ Unattended-Upgrade::Allowed-Origins {
 ```
 It is recommended you stick with just security updates initially, unless you know what you are doing.
 
-_Note: The variables ${distro_id} and ${distro_codename} are expanded automatically. I would comment out the updates entry and just leave security._
+_Note: The variables ${distro_id} and ${distro_codename} are expanded automatically. I would comment out the all entires except security._
