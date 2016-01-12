@@ -47,7 +47,7 @@ APT::Periodic::Unattended-Upgrade &amp;quot;1&amp;quot;;
 
 &lt;p&gt;It is recommended you stick with just security updates initially, unless you know what you are doing.&lt;/p&gt;
 
-&lt;p&gt;_Note: The variables ${distro_id} and ${distro&lt;em&gt;codename} are expanded automatically. I would comment out the updates entry and just leave security.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;_Note: The variables ${distro_id} and ${distro&lt;em&gt;codename} are expanded automatically. I would comment out the all entires except security.&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>
     
