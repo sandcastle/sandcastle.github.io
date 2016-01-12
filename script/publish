@@ -7,19 +7,11 @@ cd "$(dirname "$0")/.."
 
 # ------
 
-sh script/build
+git checkout source
 
 # ------
 
-echo "Saving content ..."
-
-message="${1:-"Content `date +"%F"`"}"
-
-git checkout source
-git save "${message}"
-git up
-
-echo "Saving content complete!"
+sh script/build
 
 # ------
 
@@ -27,10 +19,24 @@ echo "Publishing ..."
 cd public
 
 git checkout master
-git save "Publishing `date +"%F"`"
-git sync
+git add -A
+git commit -m "Publishing `date +"%F"`"
+git push origin master
 
 cd ..
 echo "Publish complete!"
+
+# ------
+
+echo "Saving content ..."
+
+message="${1:-"Content `date +"%F"`"}"
+
+git add -A
+git commit -m "${message}"
+git pull --rebase
+git push
+
+echo "Saving content complete!"
 
 # ------
