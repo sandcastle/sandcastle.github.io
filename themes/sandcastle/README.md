@@ -1,1 +1,0 @@
-# Sandcastle Theme for Hugo
