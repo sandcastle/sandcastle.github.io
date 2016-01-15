@@ -6,7 +6,7 @@ tags: [ "anti-patterns" ]
 categories: [ "design" ]
 ---
 
-{{< img src="/images/posts/carousels-are-bad/carousel-mockup.png" alt="Carousel Mockup" >}}
+{{< img src="/posts/carousels-are-bad/carousel-mockup.png" alt="Carousel Mockup" >}}
 
 I recently came across a mini site that discusses the use of image carousel's and the impact on landing page conversions - worth taking a look.
 
