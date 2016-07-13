@@ -3,7 +3,7 @@
 date: 2016-07-13
 title: "Data Dog & Docker Cloud"
 slug: "datadog-and-docker-cloud"
-tags: [ "cloud", "docker", "" ]
+tags: [ "cloud", "docker" ]
 categories: [ "development" ]
 ---
 
