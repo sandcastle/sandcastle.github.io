@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>interwebs on Sandcastle</title>
+    <link>https://sandcastle.io/categories/interwebs/</link>
+    <description>Recent content in interwebs on Sandcastle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-au</language>
+    <lastBuildDate>Fri, 31 Dec 1999 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://sandcastle.io/categories/interwebs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hello</title>
+      <link>https://sandcastle.io/post/hello/</link>
+      <pubDate>Fri, 31 Dec 1999 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/post/hello/</guid>
+      <description>Welcome to blog!
+Setup I followed the the simple tutorial from Maria Rivas and was up and running in no time.
+Powered by Hugo!</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on Sandcastle</title>
+    <link>https://sandcastle.io/tags/git/</link>
+    <description>Recent content in git on Sandcastle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-au</language>
+    <lastBuildDate>Mon, 16 Mar 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://sandcastle.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to convert a mercurial (hg) repository to git</title>
+      <link>https://sandcastle.io/post/how-to-convert-a-mercurial-repository-to-git/</link>
+      <pubDate>Mon, 16 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/post/how-to-convert-a-mercurial-repository-to-git/</guid>
+      <description>The easiest way to convert from mercurial (aka hg) to git is by using hg-fast-export on ubuntu. If you dont have ubnutu, then you can spin up a server on Digital Ocean for a few cents.
+If you have issues with any of the below commands, try prefixing with sudo to elevate privileges.
+Install git &amp;amp; mercurial First we need to install Git and Mercurial:
+sudo apt-get install git mercurial -y  Clone hg-fast-export The hg-fast-export converter is run directly from its repo so we will need to clone it locally.</description>
+    </item>
+    
+  </channel>
+</rss>

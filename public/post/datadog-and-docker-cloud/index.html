@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-au">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.55.6" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://sandcastle.io/css/style.css" type="text/css">
+<link rel="stylesheet" href="https://sandcastle.io/css/prism.css" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
+<link rel="alternate" href="https://sandcastle.io/index.xml" type="application/rss+xml" title="Sandcastle">
+<title>Data Dog &amp; Docker Cloud - Sandcastle</title>
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WRX2TXJ');</script>
+
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a class="path" href="https://sandcastle.io/">[Sandcastle]</a>
+  </div>
+</header>
+
+<div class="container">
+
+
+<main role="main" class="article">
+  
+<article class="single" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="meta">
+    
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2016-07-13">July 13, 2016</time></span>
+    
+    
+    <span class="key">in</span>
+    <span class="val">
+        
+        <a href="https://sandcastle.io/categories/development">development</a>
+        
+    </span>
+    
+    
+    <br>
+    <span class="key">tags:</span>
+    <span class="val">
+        
+        <a href="https://sandcastle.io/tags/cloud">cloud</a>
+        
+        <a href="https://sandcastle.io/tags/docker">docker</a>
+        
+    </span>
+    
+  </div>
+  <h1 class="headline" itemprop="headline">Data Dog &amp; Docker Cloud</h1>
+  <section class="body" itemprop="articleBody">
+    <p>The configuration you need to get up and runing with Docker Cloud and Datadog.</p>
+
+<p><em>Don&rsquo;t forget to set your <code>API_KEY</code></em></p>
+
+<pre><code class="language-yaml">datadog:
+  image: 'datadog/docker-dd-agent:latest'
+  autoredeploy: true
+  deployment_strategy: every_node
+  environment:
+    - HOSTNAME=$DOCKERCLOUD_NODE_HOSTNAME
+    - API_KEY=XXX
+  privileged: true
+  restart: always
+  tags:
+    - production
+  volumes:
+    - '/var/run/docker.sock:/var/run/docker.sock'
+    - '/proc/:/host/proc/:ro'
+    - '/sys/fs/cgroup/:/host/sys/fs/cgroup:ro'
+</code></pre>
+
+  </section>
+  
+</article>
+
+</main>
+
+</div>
+
+<footer>
+  <div class="container">
+    <span class="copyright">&copy; 1999 Glenn Morton - <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></span>
+  </div>
+</footer>
+
+<script src="https://sandcastle.io/js/prism.js"></script>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WRX2TXJ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+</body>
+</html>
+

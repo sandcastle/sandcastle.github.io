@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>http on Sandcastle</title>
+    <link>https://sandcastle.io/tags/http/</link>
+    <description>Recent content in http on Sandcastle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-au</language>
+    <lastBuildDate>Wed, 11 Mar 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://sandcastle.io/tags/http/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>HTTPS only with HTTP Strict Transport Security (HTST) header</title>
+      <link>https://sandcastle.io/post/https-only-with-http-strict-security/</link>
+      <pubDate>Wed, 11 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/post/https-only-with-http-strict-security/</guid>
+      <description>The HTTP Strict Transport Security header (Strict-Transport-Security) allows you to tell the brower to only communicate with a site using HTTPS. Once the browser has successfully connected using HTTPS and seen the header, it will only communicate with the site using HTTPS from that point forward, changing the protocol if needed. By enabling this header you can prevent man-in-the-middle attacks via SSL stripping.
+There is a good overview @ Mozilla on the header and its benefits.</description>
+    </item>
+    
+  </channel>
+</rss>

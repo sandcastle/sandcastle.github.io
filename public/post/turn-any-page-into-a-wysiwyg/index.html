@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-au">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.55.6" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://sandcastle.io/css/style.css" type="text/css">
+<link rel="stylesheet" href="https://sandcastle.io/css/prism.css" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" type="text/css">
+<link rel="alternate" href="https://sandcastle.io/index.xml" type="application/rss+xml" title="Sandcastle">
+<title>Turn any webpage into a WYSIWYG editor with HTML5 - Sandcastle</title>
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WRX2TXJ');</script>
+
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a class="path" href="https://sandcastle.io/">[Sandcastle]</a>
+  </div>
+</header>
+
+<div class="container">
+
+
+<main role="main" class="article">
+  
+<article class="single" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="meta">
+    
+    <span class="key">published on</span>
+    <span class="val"><time itemprop="datePublished" datetime="2014-12-14">December 14, 2014</time></span>
+    
+    
+    <span class="key">in</span>
+    <span class="val">
+        
+        <a href="https://sandcastle.io/categories/development">development</a>
+        
+    </span>
+    
+    
+    <br>
+    <span class="key">tags:</span>
+    <span class="val">
+        
+        <a href="https://sandcastle.io/tags/html">html</a>
+        
+        <a href="https://sandcastle.io/tags/web">web</a>
+        
+        <a href="https://sandcastle.io/tags/code">code</a>
+        
+    </span>
+    
+  </div>
+  <h1 class="headline" itemprop="headline">Turn any webpage into a WYSIWYG editor with HTML5</h1>
+  <section class="body" itemprop="articleBody">
+    <p>There is a little known feature in the HTML5 spec that enables you to turn an entire page or a single element into a <a href="http://en.wikipedia.org/wiki/WYSIWYG">WYSIWYG</a> editor with a single line of JavaScript and its <a href="http://caniuse.com/#feat=contenteditable">supported by every major browser</a> out there.</p>
+
+<p>To enable you simply set the <code>contentEditable</code> attribute of an element to <code>true</code>:</p>
+
+<pre><code class="language-javascript">// make the entire website editable
+document.body.contentEditable = true;
+
+// make an element editable
+document.getElementById('myDiv').contentEditable = true;
+</code></pre>
+
+<p>To check if an element is editable you check the <code>isContentEditable</code> attribute:</p>
+
+<pre><code class="language-javascript">if (document.getElementById('myDiv').isContentEditable){
+  // yes its editable
+}
+</code></pre>
+
+<p>Both <code>contentEditable</code> and <code>isContentEditable</code> are described in the <a href="http://www.w3.org/TR/html5/editing.html#contenteditable">HTML5 Editing spec</a>.</p>
+
+  </section>
+  
+</article>
+
+</main>
+
+</div>
+
+<footer>
+  <div class="container">
+    <span class="copyright">&copy; 1999 Glenn Morton - <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></span>
+  </div>
+</footer>
+
+<script src="https://sandcastle.io/js/prism.js"></script>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WRX2TXJ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+</body>
+</html>
+

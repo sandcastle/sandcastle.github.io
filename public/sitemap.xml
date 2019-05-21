@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://sandcastle.io/categories/</loc>
+    <lastmod>2016-07-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/post/datadog-and-docker-cloud/</loc>
+    <lastmod>2016-07-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/post/</loc>
+    <lastmod>2016-07-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/</loc>
+    <lastmod>2016-07-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/tags/</loc>
+    <lastmod>2016-07-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/tags/cloud/</loc>
+    <lastmod>2016-07-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/categories/development/</loc>
+    <lastmod>2016-07-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/tags/docker/</loc>
+    <lastmod>2016-07-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/post/use-es6-in-gulpfile-js/</loc>
+    <lastmod>2015-04-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/tags/es6/</loc>
+    <lastmod>2015-04-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/tags/gulp/</loc>
+    <lastmod>2015-04-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/tags/node/</loc>
+    <lastmod>2015-04-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/post/automatic-security-updates-with-ubuntu/</loc>
+    <lastmod>2015-04-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/tags/linux/</loc>
+    <lastmod>2015-04-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/categories/ops/</loc>
+    <lastmod>2015-04-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/tags/security/</loc>
+    <lastmod>2015-04-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/tags/ubuntu/</loc>
+    <lastmod>2015-04-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/post/how-to-convert-a-mercurial-repository-to-git/</loc>
+    <lastmod>2015-03-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/tags/git/</loc>
+    <lastmod>2015-03-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/tags/hg/</loc>
+    <lastmod>2015-03-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/post/https-only-with-http-strict-security/</loc>
+    <lastmod>2015-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/tags/code/</loc>
+    <lastmod>2015-03-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/tags/http/</loc>
+    <lastmod>2015-03-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/tags/nginx/</loc>
+    <lastmod>2015-03-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/tags/web/</loc>
+    <lastmod>2015-03-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/post/turn-any-page-into-a-wysiwyg/</loc>
+    <lastmod>2014-12-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/tags/html/</loc>
+    <lastmod>2014-12-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/post/the-query-string-builder/</loc>
+    <lastmod>2014-03-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/tags/dotnet/</loc>
+    <lastmod>2014-03-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/post/carousels-are-bad/</loc>
+    <lastmod>2012-04-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/tags/anti-patterns/</loc>
+    <lastmod>2012-04-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/categories/design/</loc>
+    <lastmod>2012-04-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/post/hello/</loc>
+    <lastmod>1999-12-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/categories/interwebs/</loc>
+    <lastmod>1999-12-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/github/</loc>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/linkedin/</loc>
+  </url>
+  
+  <url>
+    <loc>https://sandcastle.io/twitter/</loc>
+  </url>
+  
+</urlset>

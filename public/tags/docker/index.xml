@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker on Sandcastle</title>
+    <link>https://sandcastle.io/tags/docker/</link>
+    <description>Recent content in docker on Sandcastle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-au</language>
+    <lastBuildDate>Wed, 13 Jul 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://sandcastle.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Data Dog &amp; Docker Cloud</title>
+      <link>https://sandcastle.io/post/datadog-and-docker-cloud/</link>
+      <pubDate>Wed, 13 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/post/datadog-and-docker-cloud/</guid>
+      <description>The configuration you need to get up and runing with Docker Cloud and Datadog.
+Don&amp;rsquo;t forget to set your API_KEY
+datadog: image: &#39;datadog/docker-dd-agent:latest&#39; autoredeploy: true deployment_strategy: every_node environment: - HOSTNAME=$DOCKERCLOUD_NODE_HOSTNAME - API_KEY=XXX privileged: true restart: always tags: - production volumes: - &#39;/var/run/docker.sock:/var/run/docker.sock&#39; - &#39;/proc/:/host/proc/:ro&#39; - &#39;/sys/fs/cgroup/:/host/sys/fs/cgroup:ro&#39;  </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ubuntu on Sandcastle</title>
+    <link>https://sandcastle.io/tags/ubuntu/</link>
+    <description>Recent content in ubuntu on Sandcastle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-au</language>
+    <lastBuildDate>Mon, 06 Apr 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://sandcastle.io/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Automatic security updates with Ubuntu</title>
+      <link>https://sandcastle.io/post/automatic-security-updates-with-ubuntu/</link>
+      <pubDate>Mon, 06 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/post/automatic-security-updates-with-ubuntu/</guid>
+      <description>To configure automatic updates on Ubuntu you will first need ensure that the unattended-upgrades package is installed.
+sudo apt-get install unattended-upgrades  We then need to enable the package by running the following command (you will be prompted with a confirmation screen - select yes):
+sudo dpkg-reconfigure -plow unattended-upgrades  Once enabled, edit the auto upgrades settings file (/etc/apt/apt.conf.d/20auto-upgrades) so it contains the following 4 lines (some may already exist):</description>
+    </item>
+    
+  </channel>
+</rss>

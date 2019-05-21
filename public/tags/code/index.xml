@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>code on Sandcastle</title>
+    <link>https://sandcastle.io/tags/code/</link>
+    <description>Recent content in code on Sandcastle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-au</language>
+    <lastBuildDate>Wed, 11 Mar 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://sandcastle.io/tags/code/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>HTTPS only with HTTP Strict Transport Security (HTST) header</title>
+      <link>https://sandcastle.io/post/https-only-with-http-strict-security/</link>
+      <pubDate>Wed, 11 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/post/https-only-with-http-strict-security/</guid>
+      <description>The HTTP Strict Transport Security header (Strict-Transport-Security) allows you to tell the brower to only communicate with a site using HTTPS. Once the browser has successfully connected using HTTPS and seen the header, it will only communicate with the site using HTTPS from that point forward, changing the protocol if needed. By enabling this header you can prevent man-in-the-middle attacks via SSL stripping.
+There is a good overview @ Mozilla on the header and its benefits.</description>
+    </item>
+    
+    <item>
+      <title>Turn any webpage into a WYSIWYG editor with HTML5</title>
+      <link>https://sandcastle.io/post/turn-any-page-into-a-wysiwyg/</link>
+      <pubDate>Sun, 14 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/post/turn-any-page-into-a-wysiwyg/</guid>
+      <description>There is a little known feature in the HTML5 spec that enables you to turn an entire page or a single element into a WYSIWYG editor with a single line of JavaScript and its supported by every major browser out there.
+To enable you simply set the contentEditable attribute of an element to true:
+// make the entire website editable document.body.contentEditable = true; // make an element editable document.getElementById(&#39;myDiv&#39;).contentEditable = true;  To check if an element is editable you check the isContentEditable attribute:</description>
+    </item>
+    
+    <item>
+      <title>The Query String Builder</title>
+      <link>https://sandcastle.io/post/the-query-string-builder/</link>
+      <pubDate>Wed, 19 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/post/the-query-string-builder/</guid>
+      <description>I was after a query string builder to support a System.Net.HttpClient that I was building tonight and it was surprising hard to find something that met my needs.
+After some digging through the Uri source code I decided to knock one up based on the NameValueCollection.
+public class QueryStringBuilder : NameValueCollection { public QueryStringBuilder() : base(StringComparer.InvariantCultureIgnoreCase) { } public QueryStringBuilder(NameValueCollection collection) : base(StringComparer.InvariantCultureIgnoreCase) { Add(collection); } public QueryStringBuilder(object items) : base(StringComparer.</description>
+    </item>
+    
+  </channel>
+</rss>

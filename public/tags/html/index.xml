@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>html on Sandcastle</title>
+    <link>https://sandcastle.io/tags/html/</link>
+    <description>Recent content in html on Sandcastle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-au</language>
+    <lastBuildDate>Sun, 14 Dec 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://sandcastle.io/tags/html/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Turn any webpage into a WYSIWYG editor with HTML5</title>
+      <link>https://sandcastle.io/post/turn-any-page-into-a-wysiwyg/</link>
+      <pubDate>Sun, 14 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/post/turn-any-page-into-a-wysiwyg/</guid>
+      <description>There is a little known feature in the HTML5 spec that enables you to turn an entire page or a single element into a WYSIWYG editor with a single line of JavaScript and its supported by every major browser out there.
+To enable you simply set the contentEditable attribute of an element to true:
+// make the entire website editable document.body.contentEditable = true; // make an element editable document.getElementById(&#39;myDiv&#39;).contentEditable = true;  To check if an element is editable you check the isContentEditable attribute:</description>
+    </item>
+    
+  </channel>
+</rss>

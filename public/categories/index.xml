@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Sandcastle</title>
+    <link>https://sandcastle.io/categories/</link>
+    <description>Recent content in Categories on Sandcastle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-au</language>
+    <lastBuildDate>Wed, 13 Jul 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://sandcastle.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>development</title>
+      <link>https://sandcastle.io/categories/development/</link>
+      <pubDate>Wed, 13 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/categories/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ops</title>
+      <link>https://sandcastle.io/categories/ops/</link>
+      <pubDate>Mon, 06 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/categories/ops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>design</title>
+      <link>https://sandcastle.io/categories/design/</link>
+      <pubDate>Sat, 14 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/categories/design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>interwebs</title>
+      <link>https://sandcastle.io/categories/interwebs/</link>
+      <pubDate>Fri, 31 Dec 1999 00:00:00 +0000</pubDate>
+      
+      <guid>https://sandcastle.io/categories/interwebs/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
